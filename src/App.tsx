@@ -24,14 +24,9 @@ function App() {
         alignItems: "center",
       }}
     >
-      <div
-        style={{
-          fontSize: "2rem",
-          textAlign: "center",
-        }}
-      >
-        <HangmanDrawing />
-        <HangmanWord />
+      <HangmanDrawing />
+      <HangmanWord />
+      <div style={{ alignSelf: "stretch" }}>
         <Keyboard />
       </div>
     </div>
