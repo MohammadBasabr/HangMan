@@ -3,9 +3,10 @@ import React from "react";
 type Props = {
   guessedLetters: string[];
   wordToGuess: string;
+  reveal?: boolean;
 };
 
-function HangmanWord({ guessedLetters, wordToGuess }: Props) {
+function HangmanWord({ guessedLetters, wordToGuess, reveal = false }: Props) {
   return (
     <div
       style={{
@@ -26,9 +27,12 @@ function HangmanWord({ guessedLetters, wordToGuess }: Props) {
         >
           <span
             style={{
-              visibility: guessedLetters.includes(letter)
-                ? "visible"
-                : "hidden",
+              visibility:
+                guessedLetters.includes(letter) || reveal
+                  ? "visible"
+                  : "hidden",
+              color:
+                !guessedLetters.includes(letter) && reveal ? "red" : "black",
             }}
           >
             {letter}
