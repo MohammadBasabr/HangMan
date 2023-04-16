@@ -3,6 +3,9 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import words from "./wordList.json";
+import HangmanDrawing from "./HangmanDrawing";
+import HangmanWord from "./HangmanWord";
+import Keyboard from "./Keyboard";
 
 function App() {
   const [wordToGuess, setWordToGuess] = useState(() => {
@@ -27,7 +30,9 @@ function App() {
           textAlign: "center",
         }}
       >
-        Lose win
+        <HangmanDrawing />
+        <HangmanWord />
+        <Keyboard />
       </div>
     </div>
   );
