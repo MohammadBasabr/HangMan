@@ -1,10 +1,11 @@
 import React from "react";
 
-type Props = {};
+type Props = {
+  guessedLetters: string[];
+  wordToGuess: string;
+};
 
-function HangmanWord({}: Props) {
-  const word = "test";
-  const guessedLetters = ["t"];
+function HangmanWord({ guessedLetters, wordToGuess }: Props) {
   return (
     <div
       style={{
@@ -16,7 +17,7 @@ function HangmanWord({}: Props) {
         fontFamily: "monospace",
       }}
     >
-      {word.split("").map((letter, index) => (
+      {wordToGuess.split("").map((letter, index) => (
         <span
           style={{
             borderBottom: ".1em solid black",

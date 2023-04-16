@@ -1,6 +1,10 @@
 import React from "react";
 import styles from "./Keyboard.module.css";
-type Props = {};
+type Props = {
+  activeLetters: string[];
+  inactiveLetters: string[];
+  addGuessedLetter: (letter: string) => void;
+};
 
 const KEYS = [
   "a",
@@ -31,7 +35,7 @@ const KEYS = [
   "z",
 ];
 
-function Keyboard({}: Props) {
+function Keyboard({ addGuessedLetter, inactiveLetters, activeLetters }: Props) {
   return (
     <div
       style={{
@@ -41,8 +45,16 @@ function Keyboard({}: Props) {
       }}
     >
       {KEYS.map((key) => {
+        const isActive = activeLetters.includes(key);
+        const isInActive = inactiveLetters.includes(key);
         return (
-          <button className={styles.btn} key={key}>
+          <button
+            onClick={() => addGuessedLetter(key)}
+            className={`${styles.btn} ${isActive ? styles.active : ""} ${
+              isInActive ? styles.inactive : ""
+            }`}
+            key={key}
+          >
             {key}
           </button>
         );
